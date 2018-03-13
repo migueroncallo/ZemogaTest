@@ -18,6 +18,8 @@
 		DD963DDF205764F000A9CC91 /* PostsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DDE205764F000A9CC91 /* PostsAPI.swift */; };
 		DD963DE12057652C00A9CC91 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DE02057652C00A9CC91 /* Post.swift */; };
 		DD963DE32057663500A9CC91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DE22057663500A9CC91 /* User.swift */; };
+		DD963DE92057771B00A9CC91 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DE72057771B00A9CC91 /* PostTableViewCell.swift */; };
+		DD963DEA2057771B00A9CC91 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD963DE82057771B00A9CC91 /* PostTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		DD963DDE205764F000A9CC91 /* PostsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsAPI.swift; sourceTree = "<group>"; };
 		DD963DE02057652C00A9CC91 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DD963DE22057663500A9CC91 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DD963DE72057771B00A9CC91 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		DD963DE82057771B00A9CC91 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		EAB180AC9E5072972A06E1D7 /* Pods-Zemoga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zemoga.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zemoga/Pods-Zemoga.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,10 +141,20 @@
 		DD963DDD2057646400A9CC91 /* Posts */ = {
 			isa = PBXGroup;
 			children = (
+				DD963DE42057769000A9CC91 /* Cells */,
 				DD963DD92057645E00A9CC91 /* PostsViewController.swift */,
 				DD963DDA2057645E00A9CC91 /* PostsViewController.xib */,
 			);
 			path = Posts;
+			sourceTree = "<group>";
+		};
+		DD963DE42057769000A9CC91 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DD963DE72057771B00A9CC91 /* PostTableViewCell.swift */,
+				DD963DE82057771B00A9CC91 /* PostTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +222,7 @@
 				DD0C0258205754C8007B8DC1 /* LaunchScreen.storyboard in Resources */,
 				DD0C0255205754C8007B8DC1 /* Assets.xcassets in Resources */,
 				DD963DDC2057645E00A9CC91 /* PostsViewController.xib in Resources */,
+				DD963DEA2057771B00A9CC91 /* PostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +284,7 @@
 				DD963DDB2057645E00A9CC91 /* PostsViewController.swift in Sources */,
 				DD0C0250205754C8007B8DC1 /* ViewController.swift in Sources */,
 				DD0C024E205754C8007B8DC1 /* AppDelegate.swift in Sources */,
+				DD963DE92057771B00A9CC91 /* PostTableViewCell.swift in Sources */,
 				DD963DE12057652C00A9CC91 /* Post.swift in Sources */,
 				DD963DD62057628B00A9CC91 /* Constants.swift in Sources */,
 				DD963DDF205764F000A9CC91 /* PostsAPI.swift in Sources */,

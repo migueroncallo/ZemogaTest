@@ -10,6 +10,11 @@ import UIKit
 
 class PostsViewController: UIViewController {
 
+    
+    //MARK: - Variable
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     //MARK: - Initializers
     
     init() {
@@ -24,8 +29,12 @@ class PostsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        PostsApi.shared.getPosts()
-        // Do any additional setup after loading the view.
     }
 
+    //MARK: - IBActions
+
+    @IBAction func removePosts(_ sender: UIButton) {
+    }
+    
+    //MARK: - Internal Helpers
 }
