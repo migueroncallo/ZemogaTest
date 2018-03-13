@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D042418E8542D5BBC8512686 /* Pods_Zemoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C612B38B66808C416DFCCF0 /* Pods_Zemoga.framework */; };
 		DD0C024E205754C8007B8DC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C024D205754C8007B8DC1 /* AppDelegate.swift */; };
 		DD0C0250205754C8007B8DC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C024F205754C8007B8DC1 /* ViewController.swift */; };
 		DD0C0253205754C8007B8DC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD0C0251205754C8007B8DC1 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C612B38B66808C416DFCCF0 /* Pods_Zemoga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zemoga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D11CA0D63293ECBE982B7098 /* Pods-Zemoga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zemoga.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zemoga/Pods-Zemoga.release.xcconfig"; sourceTree = "<group>"; };
 		DD0C024A205754C8007B8DC1 /* Zemoga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zemoga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0C024D205754C8007B8DC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD0C024F205754C8007B8DC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		DD0C0254205754C8007B8DC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD0C0257205754C8007B8DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD0C0259205754C8007B8DC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAB180AC9E5072972A06E1D7 /* Pods-Zemoga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zemoga.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zemoga/Pods-Zemoga.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D042418E8542D5BBC8512686 /* Pods_Zemoga.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00D4B746281063CCFF4123A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C612B38B66808C416DFCCF0 /* Pods_Zemoga.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		594A56CD15863382B931F82B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EAB180AC9E5072972A06E1D7 /* Pods-Zemoga.debug.xcconfig */,
+				D11CA0D63293ECBE982B7098 /* Pods-Zemoga.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DD0C0241205754C8007B8DC1 = {
 			isa = PBXGroup;
 			children = (
 				DD0C024C205754C8007B8DC1 /* Zemoga */,
 				DD0C024B205754C8007B8DC1 /* Products */,
+				594A56CD15863382B931F82B /* Pods */,
+				00D4B746281063CCFF4123A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD0C025C205754C8007B8DC1 /* Build configuration list for PBXNativeTarget "Zemoga" */;
 			buildPhases = (
+				056438F3BE544C182893E57D /* [CP] Check Pods Manifest.lock */,
 				DD0C0246205754C8007B8DC1 /* Sources */,
 				DD0C0247205754C8007B8DC1 /* Frameworks */,
 				DD0C0248205754C8007B8DC1 /* Resources */,
+				65DCEC9C84312E4BA1E9291F /* [CP] Embed Pods Frameworks */,
+				D2829338F71B2FE6500F624B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		056438F3BE544C182893E57D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		65DCEC9C84312E4BA1E9291F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zemoga/Pods-Zemoga-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2829338F71B2FE6500F624B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zemoga/Pods-Zemoga-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DD0C0246205754C8007B8DC1 /* Sources */ = {
@@ -272,6 +347,7 @@
 		};
 		DD0C025D205754C8007B8DC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAB180AC9E5072972A06E1D7 /* Pods-Zemoga.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -286,6 +362,7 @@
 		};
 		DD0C025E205754C8007B8DC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D11CA0D63293ECBE982B7098 /* Pods-Zemoga.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
