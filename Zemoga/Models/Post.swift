@@ -15,6 +15,8 @@ class Post: Object, Codable {
     @objc dynamic var id: Int = 0
     @objc var title: String = ""
     @objc var body: String = ""
+    @objc var read: Bool = true
+    @objc var isFav: Bool = false
     
     
     private enum PostCodingKeys: String, CodingKey {
@@ -33,7 +35,7 @@ class Post: Object, Codable {
         self.init(userId: userId, id: id, title: title, body: body)
     }
     
-    convenience init(userId: Int, id: Int, title: String, body: String ) {
+    convenience init(userId: Int, id: Int, title: String, body: String) {
         self.init()
         
         self.userId = userId
