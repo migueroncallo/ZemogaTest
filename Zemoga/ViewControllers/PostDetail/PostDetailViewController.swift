@@ -8,12 +8,14 @@
 
 import UIKit
 import RealmSwift
+import NVActivityIndicatorView
 
-class PostDetailViewController: UIViewController {
+class PostDetailViewController: UIViewController, NVActivityIndicatorViewable {
     
     //MARK: - Variables
     
     var post: Post!
+    var comments = [Comment]()
     let realm = try! Realm()
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -49,6 +51,9 @@ class PostDetailViewController: UIViewController {
         configureNavigationBar()
         configurePostData()
         setLikeFunction()
+        loadUserInfo()
+        configureTableView()
+        loadPostComments()
     }
     
     
@@ -72,7 +77,12 @@ class PostDetailViewController: UIViewController {
     }
     
     func configureTableView(){
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: String(describing: CommentTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: CommentTableViewCell.self))
+        tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 73
     }
     
     func setLikeFunction(){
@@ -90,12 +100,58 @@ class PostDetailViewController: UIViewController {
         
     }
     
+    func loadPostComments(){
+        startAnimating()
+        
+        CommentAPI.shared.getCommentsForPost(postId: post.id) { (comments, error) in
+            if let c = comments{
+                self.comments = c
+                self.tableView.reloadData()
+            }else{
+                
+                //TODO: Handle errors
+                print(error!)
+            }
+        }
+    }
+    
     func loadUserInfo(){
-        UserAPI.shared.getUser(id: post.userId) { (user, erro) in
+        startAnimating()
+        UserAPI.shared.getUser(id: post.userId) { (user, error) in
+            self.stopAnimating()
             if let u = user{
-                self.userButton.setTitle(u.username, for: <#T##UIControlState#>)
+                self.userButton.setTitle(u.username, for: .normal)
+            }else{
+                //TODO: Handle errors
+                print(error!)
             }
         }
     }
 
+}
+
+extension PostDetailViewController: UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CommentTableViewCell.self)) as! CommentTableViewCell
+        
+        cell.configure(comment: comments[indexPath.row])
+        
+        return cell
+    }
+    
+}
+
+extension PostDetailViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
 }
