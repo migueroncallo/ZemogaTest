@@ -15,6 +15,9 @@
 		DD963DD62057628B00A9CC91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DD52057628B00A9CC91 /* Constants.swift */; };
 		DD963DDB2057645E00A9CC91 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DD92057645E00A9CC91 /* PostsViewController.swift */; };
 		DD963DDC2057645E00A9CC91 /* PostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD963DDA2057645E00A9CC91 /* PostsViewController.xib */; };
+		DD963DDF205764F000A9CC91 /* PostsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DDE205764F000A9CC91 /* PostsAPI.swift */; };
+		DD963DE12057652C00A9CC91 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DE02057652C00A9CC91 /* Post.swift */; };
+		DD963DE32057663500A9CC91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DE22057663500A9CC91 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		DD963DD52057628B00A9CC91 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DD963DD92057645E00A9CC91 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		DD963DDA2057645E00A9CC91 /* PostsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsViewController.xib; sourceTree = "<group>"; };
+		DD963DDE205764F000A9CC91 /* PostsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsAPI.swift; sourceTree = "<group>"; };
+		DD963DE02057652C00A9CC91 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		DD963DE22057663500A9CC91 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EAB180AC9E5072972A06E1D7 /* Pods-Zemoga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zemoga.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zemoga/Pods-Zemoga.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +120,7 @@
 		DD963DD7205762B600A9CC91 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DD963DDE205764F000A9CC91 /* PostsAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -121,6 +128,8 @@
 		DD963DD8205762CD00A9CC91 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DD963DE02057652C00A9CC91 /* Post.swift */,
+				DD963DE22057663500A9CC91 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,7 +269,10 @@
 				DD963DDB2057645E00A9CC91 /* PostsViewController.swift in Sources */,
 				DD0C0250205754C8007B8DC1 /* ViewController.swift in Sources */,
 				DD0C024E205754C8007B8DC1 /* AppDelegate.swift in Sources */,
+				DD963DE12057652C00A9CC91 /* Post.swift in Sources */,
 				DD963DD62057628B00A9CC91 /* Constants.swift in Sources */,
+				DD963DDF205764F000A9CC91 /* PostsAPI.swift in Sources */,
+				DD963DE32057663500A9CC91 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
