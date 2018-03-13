@@ -20,6 +20,8 @@ class PostsViewController: UIViewController, NVActivityIndicatorViewable{
     var posts = [Post]()
     let realm = try! Realm()
     
+    var favorites = false
+    
     //MARK: - Initializers
     
     init() {
@@ -42,7 +44,8 @@ class PostsViewController: UIViewController, NVActivityIndicatorViewable{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        
+        loadData()
     }
 
     //MARK: - IBActions
@@ -52,6 +55,21 @@ class PostsViewController: UIViewController, NVActivityIndicatorViewable{
         PostsApi.shared.deletePosts()
         tableView.reloadData()
     }
+    
+    @IBAction func displayPosts(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            favorites = false
+        case 1:
+            favorites = true
+            
+        default: break
+        }
+        
+        loadData()
+    }
+    
     
     //MARK: - Internal Helpers
     
@@ -67,16 +85,26 @@ class PostsViewController: UIViewController, NVActivityIndicatorViewable{
     func loadData(){
         print("loading data")
         startAnimating(message: "Loading", type: NVActivityIndicatorType.ballBeat)
-        PostsApi.shared.getPosts(reload: false) { (posts, error) in
-            print("data loaded")
-            self.stopAnimating()
-            if let p = posts{
-                self.posts = p
+        if favorites{
+            PostsApi.shared.getFavorites({ (posts) in
+                self.stopAnimating()
+                self.posts = posts
                 self.tableView.reloadData()
-            }else{
-                //TODO: Send error alert
+            })
+        }else{
+            PostsApi.shared.getPosts(reload: false) { (posts, error) in
+                print("data loaded")
+                self.stopAnimating()
+                if let p = posts{
+                    self.posts = p
+                    self.tableView.reloadData()
+                }else{
+                    //TODO: Send error alert
+                }
             }
         }
+        
+        
     }
     
     @objc func refreshData(_ sender: UIBarButtonItem){
@@ -141,6 +169,7 @@ extension PostsViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PostTableViewCell.self)) as! PostTableViewCell
         
         cell.configure(post: posts[indexPath.row])
+        cell.delegate = self
         
         return cell
     }
@@ -151,5 +180,12 @@ extension PostsViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+}
+
+extension PostsViewController: PostTableViewCellDelegate{
+    
+    func didToggleFav(){
+        loadData()
     }
 }

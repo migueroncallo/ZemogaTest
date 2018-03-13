@@ -19,6 +19,7 @@ class PostTableViewCell: UITableViewCell {
     
     let realm = try! Realm()
     var post: Post!
+    var delegate: PostTableViewCellDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,8 +49,12 @@ class PostTableViewCell: UITableViewCell {
         try! realm.write {
             post.isFav = !post.isFav
             favoriteImage.image = post.isFav ? UIImage(named:"star-filled") : UIImage(named:"star-empty")
-            
+            delegate.didToggleFav()
         }
     }
     
+}
+
+protocol PostTableViewCellDelegate{
+    func didToggleFav()
 }

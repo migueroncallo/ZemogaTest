@@ -84,4 +84,7 @@ class PostsApi{
         }
     }
     
+    func getFavorites(_ cb: @escaping([Post])->()){
+        cb(Array(realm.objects(Post.self).filter("isFav == true")))
+    }
 }
