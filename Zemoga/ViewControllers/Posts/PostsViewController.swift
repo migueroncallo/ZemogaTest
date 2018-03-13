@@ -33,8 +33,11 @@ class PostsViewController: UIViewController, NVActivityIndicatorViewable{
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureNavigationBar()
         configureTableView()
         loadData()
+        
     }
 
     //MARK: - IBActions
@@ -67,6 +70,14 @@ class PostsViewController: UIViewController, NVActivityIndicatorViewable{
             }
         }
     }
+    
+    func configureNavigationBar(){
+        
+        navigationItem.title = "Posts"
+        
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
+        navigationItem.rightBarButtonItem = refreshButton
+    }
 }
 
 extension PostsViewController: UITableViewDelegate{
@@ -76,7 +87,8 @@ extension PostsViewController: UITableViewDelegate{
             posts[indexPath.row].read = true
         }
         
-        tableView.reloadData()
+        let postDetailVC = PostDetailViewController.init(post: posts[indexPath.row])
+        self.navigationController?.pushViewController(postDetailVC, animated: true)
     }
 }
 
