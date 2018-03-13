@@ -6,5 +6,9 @@ target 'Zemoga' do
   use_frameworks!
 
   # Pods for Zemoga
+  pod 'Alamofire'
+  pod 'RealmSwift'
+  pod 'NVActivityIndicatorView'
+
 
 end
