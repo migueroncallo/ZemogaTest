@@ -14,7 +14,7 @@ class PostsApi{
     
     static let shared = PostsApi()
     let realm = try! Realm()
-    var posts = [Post]()
+    
     
     func getPosts(reload: Bool, _ cb: @escaping ([Post]?, Error?)->()){
         let url = URL(string: "\(baseURL)/posts")!
@@ -62,7 +62,6 @@ class PostsApi{
                             posts[i].read = false
                         }
                         
-                        self.posts = posts
                         self.realm.beginWrite()
                         self.realm.add(posts)
                         try! self.realm.commitWrite()
@@ -84,4 +83,5 @@ class PostsApi{
             realm.delete(realm.objects(Post.self))
         }
     }
+    
 }
