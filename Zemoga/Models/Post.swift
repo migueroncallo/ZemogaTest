@@ -13,10 +13,10 @@ import Realm
 class Post: Object, Codable {
     @objc dynamic var userId: Int = 0
     @objc dynamic var id: Int = 0
-    @objc var title: String = ""
-    @objc var body: String = ""
-    @objc var read: Bool = true
-    @objc var isFav: Bool = false
+    @objc dynamic var title: String = ""
+    @objc dynamic var body: String = ""
+    @objc dynamic var read: Bool = true
+    @objc dynamic var isFav: Bool = false
     
     
     private enum PostCodingKeys: String, CodingKey {

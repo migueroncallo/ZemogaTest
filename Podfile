@@ -8,5 +8,7 @@ target 'Zemoga' do
   # Pods for Zemoga
   pod 'Alamofire'
   pod 'RealmSwift'
+  pod 'NVActivityIndicatorView'
+
 
 end

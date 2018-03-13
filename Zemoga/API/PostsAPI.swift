@@ -14,6 +14,7 @@ class PostsApi{
     
     static let shared = PostsApi()
     let realm = try! Realm()
+    var posts = [Post]()
     
     func getPosts(reload: Bool, _ cb: @escaping ([Post]?, Error?)->()){
         let url = URL(string: "\(baseURL)/posts")!
@@ -32,9 +33,9 @@ class PostsApi{
                         for i in 0...19 {
                             posts[i].read = false
                         }
-                        self.realm.beginWrite()
-                        self.realm.add(posts)
-                        try! self.realm.commitWrite()
+                        try! self.realm.write {
+                            self.realm.add(posts)
+                        }
                         
                         cb(posts, nil)
                         
@@ -45,6 +46,7 @@ class PostsApi{
         }
         
         let posts = Array(realm.objects(Post.self))
+        
         
         if posts.count == 0{
             Alamofire.request(url, method: .get)
@@ -60,6 +62,7 @@ class PostsApi{
                             posts[i].read = false
                         }
                         
+                        self.posts = posts
                         self.realm.beginWrite()
                         self.realm.add(posts)
                         try! self.realm.commitWrite()
