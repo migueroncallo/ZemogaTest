@@ -39,8 +39,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkL-cc-iUU">
-                    <rect key="frame" x="10" y="107" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
+                    <rect key="frame" x="10" y="107" width="30" height="30"/>
                     <connections>
                         <action selector="userDetail:" destination="-1" eventType="touchUpInside" id="udG-d8-sS1"/>
                     </connections>

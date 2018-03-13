@@ -26,6 +26,8 @@
 		DDE7AEE2205832A200C29D67 /* CommentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7AEE1205832A200C29D67 /* CommentAPI.swift */; };
 		DDE7AEE52058341400C29D67 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7AEE32058341400C29D67 /* CommentTableViewCell.swift */; };
 		DDE7AEE62058341400C29D67 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE7AEE42058341400C29D67 /* CommentTableViewCell.xib */; };
+		DDE7AEEA2058407C00C29D67 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7AEE82058407C00C29D67 /* UserDetailViewController.swift */; };
+		DDE7AEEB2058407C00C29D67 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE7AEE92058407C00C29D67 /* UserDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		DDE7AEE1205832A200C29D67 /* CommentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAPI.swift; sourceTree = "<group>"; };
 		DDE7AEE32058341400C29D67 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		DDE7AEE42058341400C29D67 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		DDE7AEE82058407C00C29D67 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		DDE7AEE92058407C00C29D67 /* UserDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
 		EAB180AC9E5072972A06E1D7 /* Pods-Zemoga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zemoga.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zemoga/Pods-Zemoga.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +122,7 @@
 		DD963DD32057625700A9CC91 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DDE7AEE72058406400C29D67 /* UserDetail */,
 				DDE7AED42058252400C29D67 /* PostDetail */,
 				DD963DDD2057646400A9CC91 /* Posts */,
 			);
@@ -191,6 +196,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		DDE7AEE72058406400C29D67 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DDE7AEE82058407C00C29D67 /* UserDetailViewController.swift */,
+				DDE7AEE92058407C00C29D67 /* UserDetailViewController.xib */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,6 +272,7 @@
 				DD0C0255205754C8007B8DC1 /* Assets.xcassets in Resources */,
 				DDE7AEDA2058271F00C29D67 /* PostDetailViewController.xib in Resources */,
 				DD963DDC2057645E00A9CC91 /* PostsViewController.xib in Resources */,
+				DDE7AEEB2058407C00C29D67 /* UserDetailViewController.xib in Resources */,
 				DDE7AED120581EC300C29D67 /* PostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +334,7 @@
 			files = (
 				DD963DDB2057645E00A9CC91 /* PostsViewController.swift in Sources */,
 				DD0C024E205754C8007B8DC1 /* AppDelegate.swift in Sources */,
+				DDE7AEEA2058407C00C29D67 /* UserDetailViewController.swift in Sources */,
 				DDE7AED020581EC300C29D67 /* PostTableViewCell.swift in Sources */,
 				DD963DE12057652C00A9CC91 /* Post.swift in Sources */,
 				DD963DD62057628B00A9CC91 /* Constants.swift in Sources */,

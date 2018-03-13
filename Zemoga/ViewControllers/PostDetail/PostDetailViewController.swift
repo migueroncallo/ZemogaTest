@@ -17,6 +17,7 @@ class PostDetailViewController: UIViewController, NVActivityIndicatorViewable {
     var post: Post!
     var comments = [Comment]()
     let realm = try! Realm()
+    var user: User!
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -60,6 +61,8 @@ class PostDetailViewController: UIViewController, NVActivityIndicatorViewable {
     //MARK: - IBActions
     
     @IBAction func userDetail(_ sender: UIButton) {
+        let userDetailVc = UserDetailViewController.init(user: user)
+        self.navigationController?.pushViewController(userDetailVc, animated: true)
     }
     
     
@@ -121,6 +124,7 @@ class PostDetailViewController: UIViewController, NVActivityIndicatorViewable {
             self.stopAnimating()
             if let u = user{
                 self.userButton.setTitle(u.username, for: .normal)
+                self.user = u
             }else{
                 //TODO: Handle errors
                 print(error!)

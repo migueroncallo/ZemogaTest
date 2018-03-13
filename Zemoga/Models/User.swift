@@ -11,8 +11,9 @@ import Foundation
 struct User: Codable{
     var id: Int!
     var name: String!
+    var email: String!
     var username: String!
-    var adress: Address!
+    var address: Address!
     var phone: String!
     var website: String!
     var company: Company!
