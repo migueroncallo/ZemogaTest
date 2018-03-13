@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var readView: UIView!
     
     @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var favoriteImage: UIImageView!
+    
+    let realm = try! Realm()
+    var post: Post!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,8 +34,22 @@ class PostTableViewCell: UITableViewCell {
     func configure(post: Post){
         titleLabel.text = post.title
         readView.isHidden = post.read
-        readView.layer.cornerRadius = 12
+        readView.layer.cornerRadius = 6
         readView.clipsToBounds = true
+        favoriteImage.image = post.isFav ? UIImage(named:"star-filled") : UIImage(named:"star-empty")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.favPost(_:)))
+        favoriteImage.addGestureRecognizer(tap)
+        favoriteImage.isUserInteractionEnabled = true
+        self.post = post
+    }
+    
+    @objc func favPost(_ sender: UITapGestureRecognizer){
+        
+        try! realm.write {
+            post.isFav = !post.isFav
+            favoriteImage.image = post.isFav ? UIImage(named:"star-filled") : UIImage(named:"star-empty")
+            
+        }
     }
     
 }
