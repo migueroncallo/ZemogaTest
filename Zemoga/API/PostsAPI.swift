@@ -8,19 +8,34 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 class PostsApi{
     
     static let shared = PostsApi()
+    let realm = try! Realm()
     
-    func getPosts(){
+    func getPosts(_ cb: @escaping ([Post]?, Error?)->()){
         let url = URL(string: "\(baseURL)/posts")!
         
         Alamofire.request(url, method: .get)
         .validate()
-            .response { (response) in
+            .responseJSON { (response) in
                 
-               print(response)
+                switch response.result{
+                case .success:
+                    let decoder = JSONDecoder()
+                    let posts = try! decoder.decode([Post].self, from: response.data!)
+                    
+                    self.realm.beginWrite()
+                    self.realm.add(posts)
+                    try! self.realm.commitWrite()
+                    
+                    cb(posts, nil)
+                    
+                case .failure(let error):
+                    cb(nil, error)
+                }
         }
     }
 }
