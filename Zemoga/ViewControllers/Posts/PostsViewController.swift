@@ -39,10 +39,18 @@ class PostsViewController: UIViewController, NVActivityIndicatorViewable{
         loadData()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     //MARK: - IBActions
 
     @IBAction func removePosts(_ sender: UIButton) {
+        posts.removeAll()
+        PostsApi.shared.deletePosts()
+        tableView.reloadData()
     }
     
     //MARK: - Internal Helpers
@@ -71,11 +79,26 @@ class PostsViewController: UIViewController, NVActivityIndicatorViewable{
         }
     }
     
+    @objc func refreshData(_ sender: UIBarButtonItem){
+        startAnimating()
+        self.posts.removeAll()
+        PostsApi.shared.getPosts(reload: true) { (posts, error) in
+            self.stopAnimating()
+            if let p = posts{
+                self.posts = p
+                self.tableView.reloadData()
+            }else{
+                //TODO: Handle errors
+                print(error!)
+            }
+        }
+    }
+    
     func configureNavigationBar(){
         
         navigationItem.title = "Posts"
         
-        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(self.refreshData(_:)))
         navigationItem.rightBarButtonItem = refreshButton
     }
 }
@@ -85,10 +108,27 @@ extension PostsViewController: UITableViewDelegate{
         
         try! realm.write {
             posts[indexPath.row].read = true
+            tableView.reloadData()
         }
         
         let postDetailVC = PostDetailViewController.init(post: posts[indexPath.row])
         self.navigationController?.pushViewController(postDetailVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            try! realm.write {
+                realm.delete(posts[indexPath.row])
+                posts.remove(at: indexPath.row)
+                let range = NSMakeRange(0, self.tableView.numberOfSections)
+                let sections = NSIndexSet(indexesIn: range)
+                tableView.reloadSections(sections as IndexSet, with: .automatic) 
+            }
+        }
     }
 }
 
