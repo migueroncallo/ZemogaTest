@@ -10,9 +10,11 @@
 		D042418E8542D5BBC8512686 /* Pods_Zemoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C612B38B66808C416DFCCF0 /* Pods_Zemoga.framework */; };
 		DD0C024E205754C8007B8DC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C024D205754C8007B8DC1 /* AppDelegate.swift */; };
 		DD0C0250205754C8007B8DC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C024F205754C8007B8DC1 /* ViewController.swift */; };
-		DD0C0253205754C8007B8DC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD0C0251205754C8007B8DC1 /* Main.storyboard */; };
 		DD0C0255205754C8007B8DC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0C0254205754C8007B8DC1 /* Assets.xcassets */; };
 		DD0C0258205754C8007B8DC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD0C0256205754C8007B8DC1 /* LaunchScreen.storyboard */; };
+		DD963DD62057628B00A9CC91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DD52057628B00A9CC91 /* Constants.swift */; };
+		DD963DDB2057645E00A9CC91 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DD92057645E00A9CC91 /* PostsViewController.swift */; };
+		DD963DDC2057645E00A9CC91 /* PostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD963DDA2057645E00A9CC91 /* PostsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,10 +23,12 @@
 		DD0C024A205754C8007B8DC1 /* Zemoga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zemoga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0C024D205754C8007B8DC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD0C024F205754C8007B8DC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DD0C0252205754C8007B8DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD0C0254205754C8007B8DC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD0C0257205754C8007B8DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD0C0259205754C8007B8DC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD963DD52057628B00A9CC91 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DD963DD92057645E00A9CC91 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		DD963DDA2057645E00A9CC91 /* PostsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsViewController.xib; sourceTree = "<group>"; };
 		EAB180AC9E5072972A06E1D7 /* Pods-Zemoga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zemoga.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zemoga/Pods-Zemoga.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,14 +82,56 @@
 		DD0C024C205754C8007B8DC1 /* Zemoga */ = {
 			isa = PBXGroup;
 			children = (
+				DD963DD7205762B600A9CC91 /* API */,
+				DD963DD8205762CD00A9CC91 /* Models */,
+				DD963DD42057627E00A9CC91 /* Resources */,
+				DD963DD32057625700A9CC91 /* ViewControllers */,
 				DD0C024D205754C8007B8DC1 /* AppDelegate.swift */,
 				DD0C024F205754C8007B8DC1 /* ViewController.swift */,
-				DD0C0251205754C8007B8DC1 /* Main.storyboard */,
-				DD0C0254205754C8007B8DC1 /* Assets.xcassets */,
 				DD0C0256205754C8007B8DC1 /* LaunchScreen.storyboard */,
 				DD0C0259205754C8007B8DC1 /* Info.plist */,
 			);
 			path = Zemoga;
+			sourceTree = "<group>";
+		};
+		DD963DD32057625700A9CC91 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DD963DDD2057646400A9CC91 /* Posts */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DD963DD42057627E00A9CC91 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD0C0254205754C8007B8DC1 /* Assets.xcassets */,
+				DD963DD52057628B00A9CC91 /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD963DD7205762B600A9CC91 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DD963DD8205762CD00A9CC91 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD963DDD2057646400A9CC91 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				DD963DD92057645E00A9CC91 /* PostsViewController.swift */,
+				DD963DDA2057645E00A9CC91 /* PostsViewController.xib */,
+			);
+			path = Posts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,7 +198,7 @@
 			files = (
 				DD0C0258205754C8007B8DC1 /* LaunchScreen.storyboard in Resources */,
 				DD0C0255205754C8007B8DC1 /* Assets.xcassets in Resources */,
-				DD0C0253205754C8007B8DC1 /* Main.storyboard in Resources */,
+				DD963DDC2057645E00A9CC91 /* PostsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,22 +257,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD963DDB2057645E00A9CC91 /* PostsViewController.swift in Sources */,
 				DD0C0250205754C8007B8DC1 /* ViewController.swift in Sources */,
 				DD0C024E205754C8007B8DC1 /* AppDelegate.swift in Sources */,
+				DD963DD62057628B00A9CC91 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DD0C0251205754C8007B8DC1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DD0C0252205754C8007B8DC1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DD0C0256205754C8007B8DC1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
